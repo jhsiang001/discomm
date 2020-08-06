@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.discomm-nav {
+  background: #7289DA;
+  color: #FFFFFF !important;
+}
+
+.home-button {
+  font-size: 3.125rem !important;
+  margin-right: 12rem !important;
+}
+
+.login-button {
+  background: #2C2F33 !important;
+  color: #FFFFFF !important;
+  border-radius: 25px;
+}
