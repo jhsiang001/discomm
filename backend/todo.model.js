@@ -1,19 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let Todo = new Schema({
-    todo_description: {
+let DiscordServer = new Schema({
+    DiscordServer_name: {
         type: String
     },
-    todo_responsible: {
+    DiscordServer_url: {
         type: String
     },
-    todo_priority: {
+    DiscordServer_description: {
         type: String
     },
-    todo_completed: {
-        type: Boolean
+    DiscordServer_tags: {
+        type: [String]
     }
 });
 
-module.exports = mongoose.model('Todo', Todo);
+module.exports = mongoose.model('DiscordServer', DiscordServer);
