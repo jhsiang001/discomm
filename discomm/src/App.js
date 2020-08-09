@@ -23,13 +23,13 @@ class App extends Component {
                   <Link to="/" className="nav-link discomm-nav">about</Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to="/create" className="nav-link discomm-nav">my servers</Link>
+                  <Link to="/" className="nav-link discomm-nav">my servers</Link>
                 </li>
                 <li className="navbar-item">
                   <Link to="/" className="nav-link discomm-nav">social</Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to="/" className="nav-link discomm-nav">submit</Link>
+                  <Link to="/create" className="nav-link discomm-nav">submit</Link>
                 </li>
                 <li className="navbar-item">
                   <Link to="/" className="nav-link login-button px-3">log in</Link>

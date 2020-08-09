@@ -4,9 +4,10 @@ import axios from 'axios';
 
 const Todo = props => (
     <tr>
-        <td>{props.todo.todo_description}</td>
-        <td>{props.todo.todo_responsible}</td>
-        <td>{props.todo.todo_priority}</td>
+        <td>{props.todo.server_name}</td>
+        <td>{props.todo.server_description}</td>
+        <td>{props.todo.server_url}</td>
+        <td>{props.todo.server_tags}</td>
         <td>
             <Link to={"/edit/"+props.todo._id}>Edit</Link>
         </td>

@@ -2,17 +2,17 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let Todo = new Schema({
-    todo_description: {
+    DiscordServer_name: {
         type: String
     },
-    todo_responsible: {
+    DiscordServer_url: {
         type: String
     },
-    todo_priority: {
+    DiscordServer_description: {
         type: String
     },
-    todo_completed: {
-        type: Boolean
+    DiscordServer_tags: {
+        type: [String]
     }
 });
 
