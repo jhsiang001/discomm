@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const todoRoutes = express.Router();
 const PORT = 4000;
 
-let DiscordServer = require('./todo.model');
+let Todo = require('./todo.model');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -18,14 +18,13 @@ const connection = mongoose.connection;
 connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 })
-
 //adds to enddpoints which gives todo items
 todoRoutes.route('/').get(function(req, res) {
-    DiscordServer.find(function(err, servers) {
+    Todo.find(function(err, todos) {
         if (err) {
             console.log(err);
         } else {
-            res.json(servers);
+            res.json(todos);
         }
     });
 });
@@ -33,24 +32,23 @@ todoRoutes.route('/').get(function(req, res) {
 //will get a todo item by providing an id
 todoRoutes.route('/:id').get(function(req, res) {
     let id = req.params.id;
-    DiscordServer.findById(id, function(err, server) {
-        res.json(server);
+    Todo.findById(id, function(err, todo) {
+        res.json(todo);
     });
 });
-
 //used to update an existing todo item
 todoRoutes.route('/update/:id').post(function(req, res) {
-    DiscordServer.findById(req.params.id, function(err, server) {
-        if (!server)
+    Todo.findById(req.params.id, function(err, todo) {
+        if (!todo)
             res.status(404).send("data is not found");
         else
-            server.DiscordServer_name= req.body.DiscordServer_name;
-            server.DiscordServer_url = req.body.DiscordServer_url;
-            server.DiscordServer_description = req.body.DiscordServer_description;
-            server.DiscordServer_tags = req.body.DiscordServer_tags;
+            todo.todo_description = req.body.todo_description;
+            todo.todo_responsible = req.body.todo_responsible;
+            todo.todo_priority = req.body.todo_priority;
+            todo.todo_completed = req.body.todo_completed;
 
-            server.save().then(server => {
-                res.json('DiscordServer updated!');
+            todo.save().then(todo => {
+                res.json('Todo updated!');
             })
             .catch(err => {
                 res.status(400).send("Update not possible");
@@ -59,17 +57,17 @@ todoRoutes.route('/update/:id').post(function(req, res) {
 });
 //route needed to add new todo items
 todoRoutes.route('/add').post(function(req, res) {
-    let server = new DiscordServer(req.body);
-    server.save()
-        .then(server => {
-            res.status(200).json({'server': 'server added successfully'});
+    let todo = new Todo(req.body);
+    todo.save()
+        .then(todo => {
+            res.status(200).json({'todo': 'todo added successfully'});
         })
         .catch(err => {
-            res.status(400).send('adding new server failed');
+            res.status(400).send('adding new todo failed');
         });
 });
 //takes care of request starting with /todos
-app.use('/servers', todoRoutes);
+app.use('/todos', todoRoutes);
 
 app.listen(PORT, function() {
     console.log("Server is running on Port: " + PORT);

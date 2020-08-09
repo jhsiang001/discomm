@@ -16,7 +16,7 @@ class App extends Component {
       <Router>
         <div className="m-0 p-0">
           <nav className="navbar navbar-expand-lg navbar-light discomm-nav">
-            <Link to="/" className="navbar-brand discomm-nav home-button">Discomm</Link>
+            <Link to="/" className="navbar-brand discomm-nav home-button">DISCOMM</Link>
             <div className="collpase navbar-collapse">
               <ul className="navbar-nav row justify-content-between w-100">
                 <li className="navbar-item">

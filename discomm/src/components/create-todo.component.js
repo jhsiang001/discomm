@@ -1,91 +1,121 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class CreateTodo extends Component {
+export default class CreateServer extends Component {
 
     constructor(props) {
         super(props);
 
-        this.onChangeTodoDescription = this.onChangeTodoDescription.bind(this);
-        this.onChangeTodoResponsible = this.onChangeTodoResponsible.bind(this);
-        this.onChangeTodoPriority = this.onChangeTodoPriority.bind(this);
+        this.onChangeServerName = this.onChangeServerName.bind(this);
+        this.onChangeServerDescription = this.onChangeServerDescription.bind(this);
+        this.onChangeServerUrl = this.onChangeServerUrl.bind(this);
+        this.onChangeServerTags = this.onChangeServerTags.bind(this)
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            todo_description: '',
-            todo_responsible: '',
-            todo_priority: '',
-            todo_completed: false
+            server_name: '',
+            server_description: '',
+            server_url: '',
+            server_tags: []
         }
     }
 
-    onChangeTodoDescription(e) {
+    onChangeServerName(e) {
         this.setState({
-            todo_description: e.target.value
+            server_name: e.target.value
         });
     }
 
-    onChangeTodoResponsible(e) {
+    onChangeServerDescription(e) {
         this.setState({
-            todo_responsible: e.target.value
+            server_description: e.target.value
         });
     }
 
-    onChangeTodoPriority(e) {
+    onChangeServerUrl(e) {
         this.setState({
-            todo_priority: e.target.value
+            server_url: e.target.value
         });
     }
+
+    onChangeServerTags(e) {
+        this.setState({
+            server_tags: e.target.value
+        });
+    }
+
+    
 
     onSubmit(e) {
         e.preventDefault();
         
         console.log(`Form submitted:`);
-        console.log(`Todo Description: ${this.state.todo_description}`);
-        console.log(`Todo Responsible: ${this.state.todo_responsible}`);
-        console.log(`Todo Priority: ${this.state.todo_priority}`);
+        console.log(`Server Name: ${this.state.server_name}`);
+        console.log(`Server Description: ${this.state.server_description}`);
+        console.log(`Server URL: ${this.state.server_url}`);
+        console.log(`Server Tags: ${this.state.server_tags}`);
         
-        const newTodo = {
-            todo_description: this.state.todo_description,
-            todo_responsible: this.state.todo_responsible,
-            todo_priority: this.state.todo_priority,
-            todo_completed: this.state.todo_completed
+        const newServer = {
+            server_name: this.state.server_name,
+            server_description: this.state.server_description,
+            server_url: this.state.server_url,
+            server_tags: this.state.server_tags
         };
 
-        axios.post('http://localhost:4000/todos/add', newTodo)
+        axios.post('http://localhost:4000/todos/add', newServer)
             .then(res => console.log(res.data));
 
         this.setState({
-            todo_description: '',
-            todo_responsible: '',
-            todo_priority: '',
-            todo_completed: false
+            server_name: '',
+            server_description: '',
+            server_url: '',
+            server_tags: []
         })
     }
 
     render() {
         return (
             <div style={{marginTop: 10}}>
-                <h3>Create New Todo</h3>
+                <h3></h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group"> 
-                        <label>Description: </label>
+                        <label> </label>
                         <input  type="text"
                                 className="form-control"
-                                value={this.state.todo_description}
-                                onChange={this.onChangeTodoDescription}
+                                value={this.state.server_name}
+                                onChange={this.onChangeServerName}
                                 />
                     </div>
                     <div className="form-group">
-                        <label>Responsible: </label>
+                        <label> </label>
                         <input 
                                 type="text" 
                                 className="form-control"
-                                value={this.state.todo_responsible}
-                                onChange={this.onChangeTodoResponsible}
+                                value={this.state.server_description}
+                                onChange={this.onChangeServerDescription}
                                 />
                     </div>
                     <div className="form-group">
+                        <label> </label>
+                        <input 
+                                type="text" 
+                                className="form-control"
+                                value={this.state.server_url}
+                                onChange={this.onChangeServerUrl}
+                                />
+                    </div>
+
+                    <div className="form-group">
+                        <label> </label>
+                        <input list="tags"
+                                type="text" 
+                                className="form-control"
+                                value={this.state.server_tags}
+                                onChange={this.onChangeServerTags}
+                                />
+                    </div>
+                    
+                    {/* <div className="form-group">
                         <div className="form-check form-check-inline">
                             <input  className="form-check-input" 
                                     type="radio" 
@@ -95,7 +125,7 @@ export default class CreateTodo extends Component {
                                     checked={this.state.todo_priority==='Low'} 
                                     onChange={this.onChangeTodoPriority}
                                     />
-                            <label className="form-check-label">Low</label>
+                            <label className="form-check-label"></label>
                         </div>
                         <div className="form-check form-check-inline">
                             <input  className="form-check-input" 
@@ -106,7 +136,7 @@ export default class CreateTodo extends Component {
                                     checked={this.state.todo_priority==='Medium'} 
                                     onChange={this.onChangeTodoPriority}
                                     />
-                            <label className="form-check-label">Medium</label>
+                            <label className="form-check-label"></label>
                         </div>
                         <div className="form-check form-check-inline">
                             <input  className="form-check-input" 
@@ -117,9 +147,9 @@ export default class CreateTodo extends Component {
                                     checked={this.state.todo_priority==='High'} 
                                     onChange={this.onChangeTodoPriority}
                                     />
-                            <label className="form-check-label">High</label>
+                            <label className="form-check-label"></label>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div className="form-group">
                         <input type="submit" value="Create Todo" className="btn btn-primary" />
