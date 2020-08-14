@@ -61,7 +61,7 @@ export default class CreateServer extends Component {
             server_url: this.state.server_url,
             server_tags: this.state.server_tags
         };
-
+        //this posts onto our database, can tell it works with Postman
         axios.post('http://localhost:4000/todos/add', newServer)
             .then(res => console.log(res.data));
 
@@ -76,10 +76,10 @@ export default class CreateServer extends Component {
     render() {
         return (
             <div style={{marginTop: 10}}>
-                <h3></h3>
+                <h3>Submit New Server</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group"> 
-                        <label> </label>
+                        <label> Server Name</label>
                         <input  type="text"
                                 className="form-control"
                                 value={this.state.server_name}
@@ -87,7 +87,7 @@ export default class CreateServer extends Component {
                                 />
                     </div>
                     <div className="form-group">
-                        <label> </label>
+                        <label>Description </label>
                         <input 
                                 type="text" 
                                 className="form-control"
@@ -96,7 +96,7 @@ export default class CreateServer extends Component {
                                 />
                     </div>
                     <div className="form-group">
-                        <label> </label>
+                        <label> url</label>
                         <input 
                                 type="text" 
                                 className="form-control"
@@ -106,7 +106,7 @@ export default class CreateServer extends Component {
                     </div>
 
                     <div className="form-group">
-                        <label> </label>
+                        <label> tags</label>
                         <input list="tags"
                                 type="text" 
                                 className="form-control"

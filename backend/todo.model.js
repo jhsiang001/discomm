@@ -2,16 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let Todo = new Schema({
-    DiscordServer_name: {
+    server_name: {
         type: String
     },
-    DiscordServer_url: {
+    server_description: {
         type: String
     },
-    DiscordServer_description: {
+    server_url: {
         type: String
     },
-    DiscordServer_tags: {
+    server_tags: {
         type: [String]
     }
 });
