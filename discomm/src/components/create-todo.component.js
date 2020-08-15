@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import TagsInput from 'react-tagsinput'
+import 'react-tagsinput/react-tagsinput.css'
 import axios from 'axios';
 
 export default class CreateServer extends Component {
@@ -16,7 +18,7 @@ export default class CreateServer extends Component {
             server_name: '',
             server_description: '',
             server_url: '',
-            server_tags: []
+            server_tags: [],
         }
     }
 
@@ -40,7 +42,7 @@ export default class CreateServer extends Component {
 
     onChangeServerTags(e) {
         this.setState({
-            server_tags: e.target.value
+            server_tags: e
         });
     }
 
@@ -105,15 +107,17 @@ export default class CreateServer extends Component {
                                 />
                     </div>
 
+
                     <div className="form-group">
                         <label> tags</label>
-                        <input list="tags"
-                                type="text" 
+                        <TagsInput 
                                 className="form-control"
                                 value={this.state.server_tags}
                                 onChange={this.onChangeServerTags}
-                                />
+                        />
                     </div>
+
+            
                     
                     {/* <div className="form-group">
                         <div className="form-check form-check-inline">
