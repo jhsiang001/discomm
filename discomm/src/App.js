@@ -57,7 +57,7 @@ class App extends Component {
           <div class = "wrapper">
             <nav>
               <div class = "logo">
-                <a href = "/">DISCOMM</a>
+                DISCOMM
               </div>
               <ul class = "nav-items">
                 <li>
