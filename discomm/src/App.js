@@ -7,10 +7,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import CreateTodo from "./components/create-todo.component";
 import EditTodo from "./components/edit-todo.component";
 import TodosList from "./components/todos-list.component";
-
+import './index.css'
 import logo from "./logo.png";
 
-class App extends Component {
+/*class App extends Component {
   render() {
     return (
       <Router>
@@ -42,9 +42,50 @@ class App extends Component {
           <Route path="/edit/:id" component={EditTodo} />
           <Route path="/create" component={CreateTodo} />
         </div>
+        
       </Router>
     );
   }
 }
+*/
 
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div class = "nav-container">
+          <div class = "wrapper">
+            <nav>
+              <div class = "logo">
+                <a href = "/">DISCOMM</a>
+              </div>
+              <ul class = "nav-items">
+                <li>
+                  <a href = "/">about</a>
+                </li>
+                <li>
+                  <a href = "/">my servers</a>
+                </li>
+                <li>
+                  <a href = "/">social</a>
+                </li>
+                <li>
+                  <a href = "/create">submit</a>
+                </li>
+                <li>
+                  <a class = "nav-btn-container" href = "/">log in</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+        </div>
+        <Route path="/" exact component={TodosList} />
+        <Route path="/edit/:id" component={EditTodo} />
+        <Route path="/create" component={CreateTodo} />
+        
+      </Router>
+    );
+  }
+}
 export default App;
