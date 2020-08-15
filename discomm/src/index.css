@@ -43,7 +43,7 @@ code {
 .wrapper {
   margin: 0 auto;
   margin-left :515px;
-  max-width: 775px;
+  max-width: 857px;
 
 
 }
@@ -91,4 +91,8 @@ nav ul{
   font-style: normal;
   font-weight: normal;
   font-size: 17pxs;
+}
+
+.login {
+  background: #2C2F33;
 }
