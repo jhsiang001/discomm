@@ -52,7 +52,7 @@ export default class TodosList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        { this.todoList() }
+                        { this.todosList()}
                     </tbody>
                 </table>
             </div>
