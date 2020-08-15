@@ -55,6 +55,7 @@ todoRoutes.route('/update/:id').post(function(req, res) {
             });
     });
 });
+
 //route needed to add new todo items
 todoRoutes.route('/add').post(function(req, res) {
     let todo = new Todo(req.body);
