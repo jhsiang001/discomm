@@ -75,7 +75,7 @@ export default class CreateServer extends Component {
 
     render() {
         return (
-            <div style={{marginTop: 10}}>
+            <div style={{marginTop: 150}}>
                 <h3>Submit New Server</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group"> 

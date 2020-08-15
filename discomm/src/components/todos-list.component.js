@@ -42,7 +42,7 @@ export default class TodosList extends Component {
             <div>
                 
                 <h3></h3>
-                <table className="table table-striped" style={{ marginTop: 20 }} >
+                <table className="table table-striped" style={{ marginTop: 150 }} >
                     <thead>
                         <tr>
                             <th>Name</th>

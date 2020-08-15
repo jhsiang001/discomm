@@ -72,7 +72,7 @@ class App extends Component {
                 <li>
                   <a href = "/create">submit</a>
                 </li>
-                <li>
+                <li class ="login p-2 rounded">
                   <a class = "nav-btn-container" href = "/">log in</a>
                 </li>
               </ul>
@@ -83,7 +83,6 @@ class App extends Component {
         <Route path="/" exact component={TodosList} />
         <Route path="/edit/:id" component={EditTodo} />
         <Route path="/create" component={CreateTodo} />
-        
       </Router>
     );
   }
