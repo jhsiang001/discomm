@@ -12,12 +12,38 @@ let Todo = require('./todo.model');
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
-const connection = mongoose.connection;
+const dbuser = 'austin';
+const dbpassword = 'austin123';
 
-connection.once('open', function() {
-    console.log("MongoDB database connection established successfully");
-})
+const MONGODB_URI = 'mongodb+srv://austin:austin123@cluster0.z8lmu.mongodb.net/test';
+
+module.exports = MONGODB_URI;
+
+mongoose.connect(MONGODB_URI);
+
+
+// When successfully connected
+mongoose.connection.on('connected', () => {
+	console.log('Established Mongoose Default Connection');
+});
+
+// When connection throws an error
+mongoose.connection.on('error', err => {
+	console.log('Mongoose Default Connection Error : ' + err);
+});
+
+
+// mongoose.connect('mongodb://127.0.0.1:27017/todos', { useNewUrlParser: true });
+// const connection = mongoose.connection;
+
+// connection.once('open', function() {
+//     console.log("MongoDB database connection established successfully");
+// })
+
+
+
+
+
 //adds to enddpoints which gives todo items
 todoRoutes.route('/').get(function(req, res) {
     Todo.find(function(err, todos) {
