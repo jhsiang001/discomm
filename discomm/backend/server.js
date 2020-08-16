@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 const dbuser = 'austin';
 const dbpassword = 'austin123';
 
-const MONGODB_URI = 'mongodb+srv://austin:austin123@cluster0.z8lmu.mongodb.net/test';
+const MONGODB_URI = 'mongodb+srv://justin:justin123@discomm.vju9j.mongodb.net/db?retryWrites=true&w=majority';
 
 module.exports = MONGODB_URI;
 
