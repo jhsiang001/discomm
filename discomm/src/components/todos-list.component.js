@@ -3,16 +3,12 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Todo = props => (
-
+   
     <tr>
         <td>{props.todo.server_name}</td>
         <td>{props.todo.server_description}</td>
-        <td>{props.todo.server_url}</td>
-        <td>
-            {props.todo.server_tags.map(item => (
-                <li key={item}>{item}</li>
-            ))}
-        </td>
+        <a href = {props.todo.server_url}>{props.todo.server_url}</a>
+        <td>{props.todo.server_tags}</td>
         <td>
             <Link to={"/edit/"+props.todo._id}>Edit</Link>
         </td>
@@ -57,7 +53,7 @@ export default class TodosList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        { this.todosList()}
+                        { this.todoList() }
                     </tbody>
                 </table>
             </div>
