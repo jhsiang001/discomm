@@ -8,7 +8,11 @@ const Todo = props => (
         <td>{props.todo.server_name}</td>
         <td>{props.todo.server_description}</td>
         <a href = {props.todo.server_url}>{props.todo.server_url}</a>
-        <td>{props.todo.server_tags}</td>
+        <td> 
+            {props.todo.server_tags.map(item => (
+                <li key={item}>{item}</li>
+            ))}
+        </td>
         <td>
             <Link to={"/edit/"+props.todo._id}>Edit</Link>
         </td>
