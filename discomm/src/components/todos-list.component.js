@@ -12,7 +12,7 @@ const Todo = props => (
             {props.todo.server_tags.map(item => (
                 <li key={item}>{item}</li>
             ))}
-        </td>
+        :</td>
         <td>
             <Link to={"/edit/"+props.todo._id}>Edit</Link>
         </td>
