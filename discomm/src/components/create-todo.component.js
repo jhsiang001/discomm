@@ -100,7 +100,7 @@ export default class CreateServer extends Component {
                     <div className="form-group">
                         <label> url</label>
                         <input 
-                                type="text" 
+                                type="url" 
                                 className="form-control"
                                 value={this.state.server_url}
                                 onChange={this.onChangeServerUrl}
